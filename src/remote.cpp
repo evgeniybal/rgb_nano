@@ -22,7 +22,7 @@ static bool handleButton(uint16_t command)
 {
   switch (command)
   {
-  case IR_BTN_A:
+  case IR_BTN_ON:
   case IR_BTN_B:
     // ВРЕМЕННО: обе известные кнопки — следующий режим
     state.mode = static_cast<Mode>((state.mode + 1) % MODE_COUNT);
