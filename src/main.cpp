@@ -12,7 +12,7 @@ void setup()
   pinMode(G, OUTPUT);
   pinMode(B, OUTPUT);
 
-  Serial.begin(9600);
+  // Serial.begin(9600); // отладка: вывод кодов кнопок, см. checkRemote()
   remoteBegin();
 }
 
@@ -34,6 +34,11 @@ void loop()
   case MODE_OFF:
     setColor(0, 0, 0);
     wait(100); // просто ждём кнопку
+    break;
+
+  case MODE_COLOR:
+    setColor(state.color.r, state.color.g, state.color.b);
+    wait(100); // цвет горит, ждём кнопку
     break;
 
   default:
